@@ -19,7 +19,7 @@ function build {
   echo "- Building Dockerfile for jenkins -"
   echo "-----------------------------------"
   echo ""
-  docker build -t jenkins ./Dockerfiles/
+  docker build -t jenkins -f Dockerfiles/Dockerfile .
   docker run -d -p 50000:8080 --privileged --name jenkins jenkins
 }
 
@@ -49,5 +49,4 @@ function byebye {
     [ ! -z $rj ] && echo "done"
   fi
 }
-
 main
