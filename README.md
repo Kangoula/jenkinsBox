@@ -5,4 +5,4 @@ Set of scripts to run a jenkins server which can build and run docker images
 The initial [`dockerjenkins.sh`](/scripts/dockerjenkins.sh) comes from [The Docker Book](https://www.dockerbook.com/) and was modified to fit the new jenkins.war location
 
 # Licence
-This repository is under MIT licence.
+This repository is under [MIT License](/LICENSE).
