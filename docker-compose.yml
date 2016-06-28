@@ -9,7 +9,6 @@ services:
       - 8080:8080
   registry:
     container_name: registry
-    restart: always
     image: registry:2
     ports:
       - 5000:5000
