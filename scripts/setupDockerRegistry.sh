@@ -15,12 +15,20 @@ function main {
 function build {
   echo ""
   echo "---------------------------"
-  echo "- Running docker registry -"
+  echo "- Building docker registry -"
   echo "---------------------------"
   echo ""
-  docker run -d -p 5000:5000 --name registry registry:latest
-  echo ""
-  echo "registry is running, type docker ps to see running containers"
+  echo "--> Creating password"
+  mkdir ./auth
+  docker run --name createPasswd -d --entrypoint htpasswd registry:2 -Bbn admin admin > auth/htpasswd
+  docker stop createPasswd
+  echo "done"
+  echo "--> Building"
+  docker-compose build registry
+  # docker build -t gdenis/registry -f Dockerfiles/DockerfileRegistry .
+  # docker run -d -p 5000:5000 --restart=always --name registry gdenis/registry
+  # docker run -d -p 5000:5000 --name registry registry:latest
+  echo "done"
   echo ""
 }
 

@@ -1,0 +1,22 @@
+version: "2"
+services:
+  jenkins:
+    container_name: jenkins
+    build:
+      context: .
+      dockerfile: Dockerfiles/DockerfileJenkins
+    ports:
+      - 8080:8080
+  registry:
+    container_name: registry
+    restart: always
+    image: registry:2
+    ports:
+      - 5000:5000
+    environment:
+      ENV REGISTY_AUTH: htpasswd
+      ENV REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+      ENV REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+    volumes:
+      - ./data:/var/lib/registry
+      - ./auth:/auth
