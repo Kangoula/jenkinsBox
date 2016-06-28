@@ -14,9 +14,12 @@ services:
     ports:
       - 5000:5000
     environment:
-      ENV REGISTY_AUTH: htpasswd
-      ENV REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
-      ENV REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+      REGISTY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+      REGISTRY_HTTP_TLS_CERTIFICATE: /certs/domain.crt
+      REGISTRY_HTTP_TLS_KEY: /carts/domain.key
     volumes:
       - ./data:/var/lib/registry
       - ./auth:/auth
+      - ./certs:/certs

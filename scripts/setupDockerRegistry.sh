@@ -19,7 +19,6 @@ function build {
   echo "---------------------------"
   echo ""
   echo "--> Creating password"
-  mkdir ./auth
   docker run --name createPasswd -d --entrypoint htpasswd registry:2 -Bbn admin admin > auth/htpasswd
   docker stop createPasswd
   echo "done"
