@@ -14,7 +14,7 @@ RUN apt-get update && \
   apt-get -y install \
     docker-engine
 
-ADD ./scripts/dockerjenkins.sh /usr/local/bin/dockerjenkins.sh
+COPY ./scripts/dockerjenkins.sh /usr/local/bin/dockerjenkins.sh
 RUN chmod +x /usr/local/bin/dockerjenkins.sh
 
 ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/dockerjenkins.sh" ]

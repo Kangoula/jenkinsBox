@@ -1,8 +1,5 @@
 #!/bin/bash
 
-mkdir auth
-mkdir certs
-
 ./scripts/setupDockerRegistry.sh
 ./scripts/setupJenkins.sh
 

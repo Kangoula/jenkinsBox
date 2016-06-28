@@ -14,13 +14,14 @@ function main {
 
 function build {
   echo ""
-  echo "---------------------------"
+  echo "----------------------------"
   echo "- Building docker registry -"
-  echo "---------------------------"
+  echo "----------------------------"
   echo ""
   echo "--> Creating password"
-  docker run --name createPasswd -d --entrypoint htpasswd registry:2 -Bbn admin admin > auth/htpasswd
+  docker run --name createPasswd -d --entrypoint htpasswd registry:2 -Bbn admin admin >> auth/htpasswd
   docker stop createPasswd
+  docker rm createPasswd
   echo "done"
   echo "--> Building"
   docker-compose build registry

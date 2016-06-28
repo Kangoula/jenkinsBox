@@ -16,7 +16,7 @@ function main {
 function build {
   echo ""
   echo "-----------------------------------"
-  echo "- Building Dockerfile for jenkins -"
+  echo "- Building Dockerfile for Jenkins -"
   echo "-----------------------------------"
   echo ""
   docker-compose build jenkins
@@ -30,7 +30,7 @@ function build {
 function byebye {
   echo ""
   echo "-----------------------------------"
-  echo "-  Stopping and removing jenkins  -"
+  echo "-  Stopping and removing Jenkins  -"
   echo "-----------------------------------"
   echo ""
   echo "A container for jenkins already exists"

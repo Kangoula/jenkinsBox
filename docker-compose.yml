@@ -14,12 +14,14 @@ services:
     ports:
       - 5000:5000
     environment:
-      REGISTY_AUTH: htpasswd
-      REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
-      REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+      # REGISTY_AUTH: htpasswd
+      # REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+      # REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /var/lib/registry
       REGISTRY_HTTP_TLS_CERTIFICATE: /certs/domain.crt
-      REGISTRY_HTTP_TLS_KEY: /carts/domain.key
+      REGISTRY_HTTP_TLS_KEY: /certs/domain.key
     volumes:
+      - ./conf:/etc/docker/registry
       - ./data:/var/lib/registry
-      - ./auth:/auth
-      - ./certs:/certs
+      - ./auth:/auth:ro
+      - ./certs:/certs:ro
