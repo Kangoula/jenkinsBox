@@ -1,1 +1,9 @@
 FROM registry:2
+
+VOLUME `pwd`/auth /auth
+
+ENV REGISTY_AUTH=htpasswd
+ENV REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm
+ENV REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd
+ENV REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt
+ENV REGISTRY_HTTP_TLS_KEY=/carts/domain.key
