@@ -25,9 +25,6 @@ function build {
   echo "done"
   echo "--> Building"
   docker-compose build registry
-  # docker build -t gdenis/registry -f Dockerfiles/DockerfileRegistry .
-  # docker run -d -p 5000:5000 --restart=always --name registry gdenis/registry
-  # docker run -d -p 5000:5000 --name registry registry:latest
   echo "done"
   echo ""
 }

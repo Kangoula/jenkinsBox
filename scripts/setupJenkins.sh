@@ -20,8 +20,6 @@ function build {
   echo "-----------------------------------"
   echo ""
   docker-compose build jenkins
-  # docker build -t gdenis/jenkins -f Dockerfiles/DockerfileJenkins .
-  # docker run -d -p 8080:8080 --privileged --name jenkins --link registry:registry gdenis/jenkins
   echo "done"
   echo ""
 }

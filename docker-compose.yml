@@ -5,6 +5,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfiles/DockerfileJenkins
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data/jenkins:/var/jenkins_home
     ports:
       - 8080:8080
   registry:
@@ -13,14 +16,11 @@ services:
     ports:
       - 5000:5000
     environment:
-      # REGISTY_AUTH: htpasswd
-      # REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
-      # REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
       REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /var/lib/registry
       REGISTRY_HTTP_TLS_CERTIFICATE: /certs/domain.crt
       REGISTRY_HTTP_TLS_KEY: /certs/domain.key
     volumes:
       - ./conf:/etc/docker/registry
-      - ./data:/var/lib/registry
+      - ./data/registry:/var/lib/registry
       - ./auth:/auth:ro
       - ./certs:/certs:ro
