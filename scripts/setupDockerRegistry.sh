@@ -20,8 +20,8 @@ function build {
   echo ""
   echo "--> Creating password"
   docker run --name createPasswd -d --entrypoint htpasswd registry:2 -Bb auth/htpasswd admin admin
-  docker stop createPasswd
-  docker rm createPasswd
+  echo "$(docker stop createPasswd) stopped"
+  echo "$(docker rm createPasswd) removed"
   echo "done"
   echo "--> Building"
   docker-compose build registry
